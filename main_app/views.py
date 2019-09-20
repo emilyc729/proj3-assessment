@@ -8,7 +8,6 @@ from django.db.models import Sum
 def home(request):
     widget_list = Widget.objects.all()
     quantity_total = Widget.objects.aggregate(Sum('quantity'))
-    print(quantity_total)
     if request.method == 'POST':
         form = WidgetForm(request.POST)
         if form.is_valid():
